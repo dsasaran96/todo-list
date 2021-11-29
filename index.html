@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9545eaf2dc.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <title>Rook Reminders</title>
+</head>
+<body>
+    <!--Header-->
+    <header class="header">
+        <h1><i class="fas fa-chess-rook"></i> Rook Reminders</h1>
+        <div id="add" class="add-btn"><i class="fas fa-plus"></i></div>
+    </header>
+
+    <!--Side Bar-->
+    <div id="sideBar" class="side-bar">
+        <div id="inbox" class="side-bar-btn"><i class="fas fa-inbox"></i>Inbox</div>
+        <div id="today" class="side-bar-btn"><i class="fas fa-calendar-day"></i>Today</div>
+        <div id="week" class="side-bar-btn"><i class="fas fa-calendar-week"></i>Next 7 days</div>
+        <div id="projects" class="side-bar-btn_big"><i class="fas fa-chevron-right"></i>Projects</div>
+    </div>
+
+    <!--Main-->
+    <main id="main" class="main">
+        <div id="addTask" class="add-task">
+            <div id="addTaskBtm" class="add-btn-bottom"><i class="fas fa-plus"></i></div>
+            <input type="text" id="taskInputBtm" class="task-input-bottom" placeholder="Quick add">
+        </div>
+        <div id="projectTitle">
+            <h1 class="project-title">Inbox</h1>
+        </div>
+        <div id="taskList" class="task-list">
+        </div>
+    </main>
+    <div class="modal-background" id="Modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 class="modal-title">Add new task</h3>
+            <form id="taskForm">
+                <p>Priority:</p>
+                <div class="modal-priority">
+                    <input type="radio" id="low" name="priority" value="low" checked="checked"/>
+                    <label for="low"><i class="fas fa-flag priority-flag-low"></i></label>
+
+                    <input type="radio" id="medium" name="priority" value="medium"/>
+                    <label for="medium"><i class="fas fa-flag priority-flag-medium"></i></label>
+
+                    <input type="radio" id="high" name="priority" value="high"/>
+                    <label for="high"><i class="fas fa-flag priority-flag-high"></i></label>
+                </div>
+                <p class="modal-text">Task:</p>
+                <input type="text" class="input" placeholder="Get groceries" id="modalContent" required/>
+
+                <p>Due date:</p>
+                <input type="date" class="modal-date" id="modalDate" required/>
+            </form>
+            <button class="submit" id="Submit">Submit</button>
+            <div class="overlay" id="Overlay"></div>
+        </div>
+    </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
