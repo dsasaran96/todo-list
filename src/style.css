@@ -1,0 +1,348 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    text-decoration: none;
+    background-color: none;
+    outline: none;
+    border: none;
+}
+
+body {
+    font-family:'Poppins', sans-serif;
+}
+
+/* hdear */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    background-color: crimson;
+    color: white;
+    align-items: center;
+}
+
+.header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    user-select: none;
+}
+
+.fa-chess-rook {
+    font-size: 2rem;
+}
+
+.fa-plus {
+    color: crimson;
+    font-size: 1.125rem;
+}
+
+.add-btn {
+    background: white;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    transform: rotate(360deg);
+}
+
+/* sidebar */
+
+.side-bar {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 200px;
+    background-color: #f1f1f1;
+    position: fixed;
+    overflow: hidden;
+}
+
+.side-bar-btn {
+    display: block;
+    color: #4d4d4d;
+    padding: 8px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    text-align: left;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.side-bar-btn_big {
+    display: block;
+    color: #4d4d4d;
+    padding: 8px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    text-align: left;
+    transition: all 0.4s;
+    cursor: pointer;
+}
+
+.side-bar-btn_big:hover {
+    background-color: #b8b8b8;
+    color: rgb(92, 5, 23);
+}
+
+.side-bar-btn:hover {
+    background-color: #b8b8b8;
+}
+
+.fa-inbox {
+    padding-right: 8px;
+    color: rgb(0, 140, 255);
+}
+
+.fa-calendar-day {
+    padding-right: 8px;
+    color: rgb(11, 179, 11);
+}
+
+.fa-calendar-week {
+    padding-right: 8px;
+    color: purple;
+}
+
+.fa-chevron-right {
+    padding-right: 8px;
+}
+
+/* main */
+
+.main {
+    margin-left: 250px;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-task {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    bottom: 10px;
+    position: fixed;
+    padding-left: 24px;
+    height: 2rem;
+    transition: 0.4s;
+}
+
+.task-input-bottom {
+    font-size: 1.5rem;
+    text-align: left;
+    width: 300px;
+}
+
+.add-btn-bottom {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.add-btn-bottom .fa-plus {
+    font-size: 1.5rem;
+}
+
+.add-btn-bottom:hover {
+    transform: scale(1.4) rotate(-360deg);
+}
+
+/* task styling */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    width: 62.5vw;
+    gap: 8px;
+    border-bottom: 1px lightgrey solid;
+    padding-bottom: 20px;
+    transition: 0.4s;
+    list-style: none;
+}
+
+.task-content {
+    width: 62.5vw;
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    padding-left: 8px;
+}
+
+.delete {
+    color: crimson;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.delete:hover {
+    transform: scale(1.2);
+}
+
+.edit {
+    color: purple;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.edit:hover {
+    transform: scale(1.2);
+}
+
+.date {
+    font-style: italic;
+    color: crimson;
+    font-size: 80%;
+    cursor: pointer;
+}
+
+.priority-flag-low {
+    color:rgb(0, 140, 255);
+    transition: all 0.3s;
+    background-image: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.priority-flag-low:hover {
+    transform: scale(1.2);
+}
+
+.priority-flag-medium {
+    color:rgb(255, 196, 0);
+    transition: all 0.3s;
+    background-image: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.priority-flag-medium:hover {
+    transform: scale(1.2);
+}
+
+.priority-flag-high {
+    color:crimson;
+    transition: all 0.3s;
+    background-image: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.priority-flag-high:hover {
+    transform: scale(1.2);
+}
+
+/* modal */
+
+.modal-background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 600px;
+    height: 400px;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.close {
+    position: relative;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.close:hover {
+    transform: scale(1.4);
+}
+
+.modal-title {
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.input {
+    height: 40px;
+    width: 400px;
+    font-size: 1.5rem;
+}
+
+.modal-date {
+    font-size: 1.125rem;
+    color: crimson;
+    font-style: italic;
+}
+
+.submit {
+    outline: none;
+    border: none;
+    background-color: lightgrey;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.submit:hover {
+    background-color: crimson;
+}
+/* added throguh function */
+
+.completed {
+    color: lightgrey;
+    transition: 0.4s;
+}
+
+/* media query sa vad cu vs-code side to side lmfao */
+
+@media screen and (max-width: 900px) {
+    .task-content {
+        width: 375px;
+    }
+
+    .task {
+        width: 375px;
+    }
+}
