@@ -57,62 +57,62 @@ modalSubmit.addEventListener('click', (e) => {
 
 //quick add
 
-// addBtm.addEventListener('click', () => {
-//     const quickAdd = document.getElementById('taskInputBtm');
-//     if(quickAdd.value != '') {
-//         const task = document.createElement('div');
-        // task.classList.add('task');
+addBtm.addEventListener('click', () => {
+    const quickAdd = document.getElementById('taskInputBtm');
+    if(quickAdd.value != '') {
+        const task = document.createElement('div');
+        task.classList.add('task');
 
-        // const priority = document.createElement('div');
-        // priority.classList.add('priority-flag-low');
+        const priority = document.createElement('div');
+        priority.classList.add('priority-flag-low');
 
-        // const flag = document.createElement('i');
-        // flag.classList.add('fas');
-        // flag.classList.add('fa-flag');
-        // priority.appendChild(flag);
+        const flag = document.createElement('i');
+        flag.classList.add('fas');
+        flag.classList.add('fa-flag');
+        priority.appendChild(flag);
 
-        // const content = document.createElement('div');
-        // content.innerText = quickAdd.value;
-        // content.classList.add('task-content');
+        const content = document.createElement('div');
+        content.innerText = quickAdd.value;
+        content.classList.add('task-content');
 
-        // const date = document.createElement('div');
-        // const today = format(new Date(), 'dd/MMM/yyyy');
-        // date.innerText = today;
-        // date.classList.add('date');
+        const date = document.createElement('div');
+        const today = format(new Date(), 'dd/MMM/yyyy');
+        date.innerText = today;
+        date.classList.add('date');
 
-        // const actions = document.createElement('div');
-        // actions.classList.add('actions');
+        const actions = document.createElement('div');
+        actions.classList.add('actions');
 
-        // const delBtn = document.createElement('div');
-        // delBtn.classList.add('delete');
-        // const delIcon = document.createElement('i');
-        // delIcon.classList.add('fas');
-        // delIcon.classList.add('fa-trash-alt');
-        // delBtn.appendChild(delIcon);
-        // addDelete(delBtn);
+        const delBtn = document.createElement('div');
+        delBtn.classList.add('delete');
+        const delIcon = document.createElement('i');
+        delIcon.classList.add('fas');
+        delIcon.classList.add('fa-trash-alt');
+        delBtn.appendChild(delIcon);
+        addDelete(delBtn);
 
-        // const editBtn = document.createElement('div');
-        // editBtn.classList.add('edit');
-        // const editIcon = document.createElement('i');
-        // editIcon.classList.add('fas');
-        // editIcon.classList.add('fa-edit');
-        // editBtn.appendChild(editIcon);
+        const editBtn = document.createElement('div');
+        editBtn.classList.add('edit');
+        const editIcon = document.createElement('i');
+        editIcon.classList.add('fas');
+        editIcon.classList.add('fa-edit');
+        editBtn.appendChild(editIcon);
 
-        // actions.appendChild(editBtn);
-        // actions.appendChild(delBtn);
+        actions.appendChild(editBtn);
+        actions.appendChild(delBtn);
 
-        // task.appendChild(priority);
-        // task.appendChild(content);
-        // task.appendChild(date);
-        // task.appendChild(actions);
+        task.appendChild(priority);
+        task.appendChild(content);
+        task.appendChild(date);
+        task.appendChild(actions);
 
-        // taskList.appendChild(task);
+        taskList.appendChild(task);
 
-        // quickAdd.value = '';
-//     } else {
-//         alert('Please fill the quick add section');
-//     }
-// })
+        quickAdd.value = '';
+    } else {
+        alert('Please fill the quick add section');
+    }
+})
 
 //add task from form
 
