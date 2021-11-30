@@ -85,7 +85,7 @@ body {
 }
 
 .side-bar-btn_big {
-    display: block;
+    display: flex;
     color: #4d4d4d;
     padding: 8px;
     text-decoration: none;
@@ -94,14 +94,15 @@ body {
     text-align: left;
     transition: all 0.4s;
     cursor: pointer;
+    align-items: center;
 }
 
-.side-bar-btn_big:hover {
+.side-bar-btn_big:not(.no-hover):hover {
     background-color: #b8b8b8;
     color: rgb(92, 5, 23);
 }
 
-.side-bar-btn:hover {
+.side-bar-btn:not(.no-hover):hover {
     background-color: #b8b8b8;
 }
 
@@ -120,8 +121,9 @@ body {
     color: purple;
 }
 
-.fa-chevron-right {
-    padding-right: 8px;
+.active {
+    background-color: crimson;
+    color: white;
 }
 
 /* main */

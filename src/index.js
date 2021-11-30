@@ -1,5 +1,5 @@
 import './style.css';
-import { format } from 'date-fns';
+import { format, formatDistanceToNowStrict } from 'date-fns';
 
 //DOM cache
 
@@ -9,13 +9,34 @@ const addBtm = document.getElementById('addTaskBtm');
 const taskList = document.getElementById('taskList');
 
 const span = document.querySelector('.close');
-const prioLow = document.getElementById('low');
-const prioMed = document.getElementById('medium');
-const prioHigh = document.getElementById('high');
 const text = document.getElementById("modalContent");
 const modalDate = document.getElementById("modalDate");
 const modalSubmit = document.getElementById("Submit");
 const modalForm = document.getElementById("Modal");
+
+const sideBar = document.getElementById('sideBar');
+const inbox = document.getElementById('inbox');
+const thisDay = document.getElementById('thisDay');
+const week = document.getElementById('week');
+const projects = document.getElementById('projects');
+
+//side bar
+
+week.addEventListener('click', () => {
+    UI.setActive(week);
+    UI.displayWeek();
+})
+
+thisDay.addEventListener('click', (e) => {
+    UI.displayToday();
+    UI.setActive(thisDay);
+})
+
+inbox.addEventListener('click', (e) => {
+    UI.setActive(inbox);
+    UI.resetTaskList();
+    UI.displayTasks();
+})
 
 //Popup modal
 
@@ -40,7 +61,7 @@ window.onclick = function(event) {
 //modal funcionality
 
 modalSubmit.addEventListener('click', (e) => {
-    let prioAdd = document.querySelector('input[name="priority"]:checked').value;
+    const prioAdd = document.querySelector('input[name="priority"]:checked').value;
     const contentAdd = text.value;
     const dateAdd = modalDate.value;
 
@@ -53,6 +74,9 @@ modalSubmit.addEventListener('click', (e) => {
     Store.addTask(task);
     UI.addTaskToList(task);
     UI.clearFields();
+    UI.resetTaskList();
+    UI.displayTasks();
+    UI.setActive(inbox);
 }});
 
 //quick add
@@ -89,7 +113,6 @@ addBtm.addEventListener('click', () => {
         delIcon.classList.add('fas');
         delIcon.classList.add('fa-trash-alt');
         delBtn.appendChild(delIcon);
-        addDelete(delBtn);
 
         const editBtn = document.createElement('div');
         editBtn.classList.add('edit');
@@ -108,6 +131,11 @@ addBtm.addEventListener('click', () => {
 
         taskList.appendChild(task);
 
+        const taskToAdd = new Task('low', content.innerText, today);
+
+        Store.addTask(taskToAdd);
+        UI.clearFields();
+
         quickAdd.value = '';
     } else {
         alert('Please fill the quick add section');
@@ -117,11 +145,10 @@ addBtm.addEventListener('click', () => {
 //add task from form
 
 class Task {
-    constructor (priority, content, date, completed = 0) {
+    constructor (priority, content, date) {
         this.priority = priority;
         this.content = content;
         this.date = date;
-        this.completed = completed;
     }
 }
 
@@ -131,6 +158,31 @@ class UI {
 
         tasks.forEach((task) => {
             UI.addTaskToList(task);
+        })
+    }
+
+    static displayToday() {
+        const tasks = Store.getTasks();
+        
+        UI.resetTaskList();
+        tasks.forEach((task) => {
+            const day = format(new Date(), 'yyyy-MM-dd');
+            if(task.date == day) {
+                UI.addTaskToList(task);
+            }
+        })
+    }
+
+    static displayWeek() {
+        const tasks = Store.getTasks();
+        
+        UI.resetTaskList();
+        tasks.forEach((task) => {
+            const dateComp = new Date(task.date);
+            const weekComp = formatDistanceToNowStrict(dateComp, { unit: 'day', roundingMethod: 'floor'}).split(' ')[0];
+            if(weekComp <= 7) {
+                UI.addTaskToList(task);
+            }
         })
     }
     
@@ -199,6 +251,24 @@ class UI {
         taskList.appendChild(divCreate);
     }
 
+    static setActive(button) {
+
+            inbox.classList.remove('active');
+            inbox.classList.remove('no-hover');
+    
+            thisDay.classList.remove('active');
+            thisDay.classList.remove('no-hover');
+    
+            week.classList.remove('active');
+            week.classList.remove('no-hover');
+    
+            projects.classList.remove('active');
+            projects.classList.remove('no-hover');
+    
+            button.classList.add('active');
+            button.classList.add('no-hover');
+    }
+
     static clearFields() {
         text.value = '';
     }
@@ -241,5 +311,3 @@ class Store {
 
 document.addEventListener('DOMContentLoaded', UI.displayTasks);
 
-
-//delete function
