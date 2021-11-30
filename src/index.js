@@ -1,6 +1,10 @@
 import './style.css';
 import { format, formatDistanceToNowStrict } from 'date-fns';
 
+//have to do: 
+//edit button
+//projects (should be really easy);
+
 //DOM cache
 
 const body = document.getElementsByTagName("BODY")[0];
